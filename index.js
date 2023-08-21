@@ -71,6 +71,30 @@ let server = http.createServer(function(req, res){
 
     // }
 
+
+    //Ays exit ============
+
+    // if(req.url = "/"){
+    //     fs.exists('demoSync.txt', function(error){
+    //         if(error){
+
+    //             res.writeHead(200, {'Content-Type': 'text/html'});
+    //             res.write("true");
+    //             res.end();
+    //         }else{
+    //             res.writeHead(200, {'Content-Type': 'text/html'});
+    //             res.write("False");
+    //             res.end();
+    //         }
+            
+    //     });
+
+    // }
+
+
+    //========================SYNC===========================================
+
+
     //Sync readFile==================
     // if(req.url == "/"){
     //     let allData = fs.readFileSync('Home.html')
@@ -128,6 +152,34 @@ let server = http.createServer(function(req, res){
     //             res.end();
     //         }
             
+    // }
+
+
+    //Sync exit ============
+    // if(req.url = "/"){
+    //     let error = fs.existsSync('demoSync.txt')
+    //         if(error){
+
+    //             res.writeHead(200, {'Content-Type': 'text/html'});
+    //             res.write("true");
+    //             res.end();
+    //         }else{
+    //             res.writeHead(200, {'Content-Type': 'text/html'});
+    //             res.write("False");
+    //             res.end();
+    //         }
+            
+    // }
+
+
+
+    // node.js navigation system=============================
+    // if(req.url == "/"){
+    //     let data = fs.readFileSync('About.html', 'utf-8')
+    //     res.end(data)
+    // }else if(req.url == "/Contact"){
+    //     let data = fs.readFileSync('Contact.html', 'utf-8')
+    //     res.end(data)
     // }
 
 
