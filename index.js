@@ -1,8 +1,7 @@
-console.log("hello")
 const fs = require('fs');
 const http = require('http')
 
-
+// =============== requirements-> 1 HTTP Server create=============== 
 let server = http.createServer(function(req, res){
 
     //Ays readFile ============
@@ -16,8 +15,25 @@ let server = http.createServer(function(req, res){
     // }
 
     //Ays writeFile ============
+    if(req.url = "/file-write"){
+        fs.writeFile('demo.txt','Hello World', function(error){
+            if(error){
+
+                res.writeHead(200, {'Content-Type': 'text/html'});
+                res.write("File write fail");
+                res.end();
+            }else{
+                res.writeHead(200, {'Content-Type': 'text/html'});
+                res.write("File write success");
+                res.end();
+            }
+            
+        });
+
+    }
+    //Ays writeFile ============
     // if(req.url = "/"){
-    //     fs.writeFile('demo.html','Hello himu', function(error){
+    //     fs.writeFile('demo.html','Hello World', function(error){
     //         if(error){
 
     //             res.writeHead(200, {'Content-Type': 'text/html'});
@@ -174,16 +190,22 @@ let server = http.createServer(function(req, res){
 
 
     // node.js navigation system=============================
-    // if(req.url == "/"){
-    //     let data = fs.readFileSync('About.html', 'utf-8')
-    //     res.end(data)
-    // }else if(req.url == "/Contact"){
-    //     let data = fs.readFileSync('Contact.html', 'utf-8')
-    //     res.end(data)
-    // }
-
+    if(req.url == "/"){
+        let data = fs.readFileSync('Home.html', 'utf-8')
+        res.end(data)
+    }else if(req.url == "/contact"){
+        let data = fs.readFileSync('Contact.html', 'utf-8')
+        res.end(data)
+    }else if(req.url == "/about"){
+        let data = fs.readFileSync('About.html', 'utf-8')
+        res.end(data)
+    }
+    // res.end("hello")
 
 })
 
-server.listen(4040)
-console.log("server success")
+// =============== requirements-> 2 listen on port 3000 run =============== 
+server.listen(3000 )
+
+// =============== requirements-> 3 console message when the run port 3000 =============== 
+console.log("listening on port 3000.")
